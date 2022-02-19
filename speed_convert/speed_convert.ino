@@ -1,6 +1,5 @@
-/////////////////////
-//    Libraries    //
-/////////////////////
+//  Speed converter by LAleksss  //
+// No support No question please //
 
 #include <EEPROM.h>
 #include <SPI.h>
@@ -8,18 +7,10 @@
 #include <TimeLib.h>
 #include <mcp2515.h> 
 
-/////////////////////
-//  Configuration  //
-/////////////////////
-
 #define CS_PIN_CAN0 10
 #define SERIAL_SPEED 115200
 #define CAN_SPEED CAN_125KBPS // Entertainment CAN bus - Low speed
 #define CAN_FREQ MCP_8MHZ // Switch to 8MHZ if you have a 8Mhz module
-
-////////////////////
-// Initialization //
-////////////////////
 
 MCP2515 CAN0(CS_PIN_CAN0); // CAN-BUS Shield to read
 
