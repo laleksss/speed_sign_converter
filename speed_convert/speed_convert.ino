@@ -63,7 +63,7 @@ void loop() {
 
         CAN0.sendMessage( & canMsgSnd);
         
-  } else if (id == 148 && len == 8) { // TestCase
+  } else if (id == 148 && len == 8) {
         
         tmp0 = canMsgRcv.data[0];
         tmp1 = canMsgRcv.data[1];
@@ -74,7 +74,7 @@ void loop() {
         tmp6 = canMsgRcv.data[6];
         tmp7 = canMsgRcv.data[7];
 
-      } else if (id == 162 && len == 6) { // TestCase
+      } else if (id == 162 && len == 6) {
         
         MemVal = canMsgRcv.data[1];
         
