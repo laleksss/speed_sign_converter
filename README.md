@@ -9,7 +9,8 @@ If you see blinking between what should be displayed and 0 grey sign, you have a
 Blinking caused by difference between SAME frames sended by BSI and Arduino.
 
 Example:
+```
 Bsi send frame: 0x001 00 00 00
 Arduino frame: 0x001 00 FF 00
-
 Result: accepting device is not understanding what happening and sometimes using first data, sometimes - second. 
+```
