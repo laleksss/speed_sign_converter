@@ -19,16 +19,6 @@ MCP2515 CAN0(CS_PIN_CAN0); // CAN-BUS Shield to read
 struct can_frame canMsgSnd;
 struct can_frame canMsgRcv;
 
-
-  byte tmp0;
-  byte tmp1;
-  byte tmp2;
-  byte tmp3;
-  byte tmp4;
-  byte tmp5;
-  byte tmp6;
-  byte tmp7;
-
 void setup() {
   
   int tmpVal;
@@ -42,8 +32,6 @@ void setup() {
 
 void loop() {
   int tmpVal;
-  byte MemVal;
-
 
  if (CAN0.readMessage( & canMsgRcv) == MCP2515::ERROR_OK ) {
     int id = canMsgRcv.can_id;
@@ -63,35 +51,6 @@ void loop() {
 
         CAN0.sendMessage( & canMsgSnd);
         
-  } else if (id == 148 && len == 8) {
-        
-        tmp0 = canMsgRcv.data[0];
-        tmp1 = canMsgRcv.data[1];
-        tmp2 = canMsgRcv.data[2];
-        tmp3 = canMsgRcv.data[3];
-        tmp4 = canMsgRcv.data[4];
-        tmp5 = canMsgRcv.data[5];
-        tmp6 = canMsgRcv.data[6];
-        tmp7 = canMsgRcv.data[7];
-
-      } else if (id == 162 && len == 6) {
-        
-        MemVal = canMsgRcv.data[1];
-        
-        if (MemVal == 04) {
-        canMsgSnd.data[0] = tmp0;
-        canMsgSnd.data[1] = tmp1;
-        canMsgSnd.data[2] = tmp2;
-        canMsgSnd.data[3] = 0xFF;
-        canMsgSnd.data[4] = tmp4;
-        canMsgSnd.data[5] = tmp5;
-        canMsgSnd.data[6] = tmp6;
-        canMsgSnd.data[7] = tmp7;
-        canMsgSnd.can_id = 0x094;
-        canMsgSnd.can_dlc = 8;
-        CAN0.sendMessage( & canMsgSnd);
-        }
-       }
+      }
+    }
    }
-  }
-   
